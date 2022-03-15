@@ -1,0 +1,39 @@
+<%- include('partial/header')%>
+
+<div class="container my-5 mt-10" id="login">
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+      <div class="card card-body p-5 my-card">
+        <h4 class="mb-3">Login to Your Account</h4>
+        <form action="/auth/login" method="POST">
+          <div class="form-group">
+            <label class="my-2" for="email">Enter Your Valid Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="my-2" for="password">Enter A Strong Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+            />
+          </div>
+
+          <input type="submit" class="btn btn-primary my-3" value="Login" />
+        </form>
+        <a href="/v1/register" class="my-3"
+          > <span style="color:black; padding:4px"> Don't have an Account?</span>Create One </a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partial/footer')%>
