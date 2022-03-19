@@ -12,3 +12,7 @@ exports.postUserRegistration = async(req,res,next) =>{
         user: registerUser
     });
 }
+
+exports.postUserLogin = async()=>{
+    
+}

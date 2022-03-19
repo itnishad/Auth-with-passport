@@ -17,8 +17,4 @@ exports.userSave = async(user) =>{
     }catch(err){
         console.log(err);
     }
-    
-    
-
-    
 }

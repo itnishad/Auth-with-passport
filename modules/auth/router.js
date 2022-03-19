@@ -1,3 +1,4 @@
+const passport = require('passport')
 const express = require('express');
 const router = express.Router();
 
@@ -13,8 +14,13 @@ const {
     userValidatorResult
 } = require('./middlewares/authvalidation')
 
-router.get('/login',UserController.getUserRegistration )
-
+router.get('/login',UserController.getUserRegistration)
+router.post('/login', passport.authenticate('local', {failureRedirect:'/login', successRedirect:'/v1/nishad'}))
+router.get('/nishad', (req,res,next)=>{ 
+    res.status(200).json({
+        message:"Wellcome Nishad"
+    })
+})
 router.get('/register', (req,res,next) =>{
     res.render("register", {title: "Registration"});
 })
