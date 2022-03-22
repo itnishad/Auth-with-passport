@@ -39,6 +39,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./middlewares/authPassport');
 
+// app.use((req, res, next)=>{
+//     console.log(req.session)
+//     console.log(req.user)
+//     next()
+// })
 
 //EJS
 app.set('view engine', 'ejs');
