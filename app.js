@@ -20,30 +20,25 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 //Session
-app.use(session({
-    secret:process.env.SESSION_SECRET,
-    saveUninitialized:true,
-    resave: false,
-    store: MongoStore.create({
-        mongoUrl:process.env.MONGOOSECONNECTIONSTRING,
-        collectionName:"sessions",
-        autoRemove:'native'
-    }),
-    cookie:{
-        maxAge:1000*60*60*24
-    }
-}))
+// app.use(session({
+//     secret:process.env.SESSION_SECRET,
+//     saveUninitialized:true,
+//     resave: false,
+//     store: MongoStore.create({
+//         mongoUrl:process.env.MONGOOSECONNECTIONSTRING,
+//         collectionName:"sessions",
+//         autoRemove:'native'
+//     }),
+//     cookie:{
+//         maxAge:1000*60*60*24
+//     }
+// }))
 
 //Passport
 app.use(passport.initialize());
-app.use(passport.session());
-require('./middlewares/authPassport');
-
-// app.use((req, res, next)=>{
-//     console.log(req.session)
-//     console.log(req.user)
-//     next()
-// })
+// app.use(passport.session());
+//require('./middlewares/authPassport');
+require('./middlewares/authJwtPassport');
 
 //EJS
 app.set('view engine', 'ejs');
